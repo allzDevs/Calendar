@@ -2,8 +2,10 @@
   "name": "calendar",
   "version": "0.1.0",
   "description": "AllzDevs Calendar",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
+    "build": "tsc -p .",
+    "start": "node ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/allzDevs/Calendar/issues"
   },
-  "homepage": "https://github.com/allzDevs/Calendar#readme"
+  "homepage": "https://github.com/allzDevs/Calendar#readme",
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  }
 }

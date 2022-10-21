@@ -7,6 +7,13 @@
     border: 1px solid;
     max-width: $max-width;
 
+    .header {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     .namesOfWeek {
         display: flex;
         align-items: center;

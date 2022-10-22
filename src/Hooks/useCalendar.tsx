@@ -1,5 +1,5 @@
-import { DAYSOFMONTH } from "@/Utils/Consts"
-import { getLastDayOfMonth, getFirstDayOfMonthInWeek } from "@/Utils/Date"
+import { DAYSOFMONTH } from "../Utils/Consts"
+import { getLastDayOfMonth, getFirstDayOfMonthInWeek } from "../Utils/Date"
 import { useState } from "react"
 
 export const useCalendar = () => {
@@ -8,8 +8,8 @@ export const useCalendar = () => {
     const currentYear = state.baseDate.getFullYear()
 
     const changeBaseDate = (months: number, sum: boolean) => {
-        const now = new Date();
-        sum ? now.setMonth( now.getMonth() + months) : now.setMonth( now.getMonth() - months)
+        const now = new Date(state.baseDate);
+        sum ? now.setMonth(now.getMonth() + months) : now.setMonth(now.getMonth() - months)
         setState(old => ({...old, baseDate: now}))
     }
 
@@ -24,7 +24,7 @@ export const useCalendar = () => {
     const createMonth = () => {
         const lastDayOfMonth = getLastDayOfMonth(currentYear, currentMonth);
         
-        const lastMonthDate = new Date(state.baseDate.setMonth(currentMonth - 1))
+        const lastMonthDate = new Date(new Date(currentMonth - 1))
         const lastMonth = lastMonthDate.getMonth()
         const lastYear = lastMonthDate.getFullYear()
         const lastDayOfLastMonth = getLastDayOfMonth(lastYear, lastMonth);
@@ -42,6 +42,7 @@ export const useCalendar = () => {
         increaseMonth,
         decreaseMonth,
         createMonth,
-        currentMonth
+        currentMonth,
+        currentYear
     }
 }
